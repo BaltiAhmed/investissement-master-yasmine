@@ -18,9 +18,10 @@ import UpdateMarketing from "../pages/marketing/update-marketing";
 import ChatScreen from "../pages/chat";
 import ChatScreenFinanciere from "../pages/chatFinanciere";
 import ListFinanciere from "../pages/list-financiere";
-import ListeProjetPlanAffaire from "../pages/planAffaire"
-import ListePlanAffaire from "../pages/listPlanAffaire"
-import AjoutPPlanAffaire from "../pages/AddPlanAffaire"
+import ListeProjetPlanAffaire from "../pages/planAffaire";
+import ListePlanAffaire from "../pages/listPlanAffaire";
+import AjoutPPlanAffaire from "../pages/AddPlanAffaire";
+import Profile from "../pages/profiles";
 
 const HomeNav = createStackNavigator(
   {
@@ -51,7 +52,7 @@ const AjoutNav = createStackNavigator(
     UpdateMarketing: UpdateMarketing,
     ListeProjetPlanAffaire: ListeProjetPlanAffaire,
     ListePlanAffaire: ListePlanAffaire,
-    AjoutPPlanAffaire: AjoutPPlanAffaire
+    AjoutPPlanAffaire: AjoutPPlanAffaire,
   },
   {
     defaultNavigationOptions: {
@@ -81,6 +82,20 @@ const ChatNavFinanciere = createStackNavigator(
   {
     ListFinanciere: ListFinanciere,
     ChatScreenFinanciere: ChatScreenFinanciere,
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#4a148c",
+      },
+      headerTintColor: "white",
+    },
+  }
+);
+
+const ProfileNav = createStackNavigator(
+  {
+    Profile: Profile,
   },
   {
     defaultNavigationOptions: {
@@ -128,16 +143,27 @@ const mainNavigator = createDrawerNavigator(
       },
     },
     Financiere: {
-        screen: ChatNavFinanciere,
-        navigationOptions: {
-          drawerLabel: "Fnancières",
-        },
-        contentOptions: {
-          labelStyle: {
-            marginTop: 100,
-          },
+      screen: ChatNavFinanciere,
+      navigationOptions: {
+        drawerLabel: "Fnancières",
+      },
+      contentOptions: {
+        labelStyle: {
+          marginTop: 100,
         },
       },
+    },
+    Profile: {
+      screen: ProfileNav,
+      navigationOptions: {
+        drawerLabel: "Profile",
+      },
+      contentOptions: {
+        labelStyle: {
+          marginTop: 100,
+        },
+      },
+    },
   },
   {
     contentOptions: {

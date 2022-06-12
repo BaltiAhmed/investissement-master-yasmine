@@ -8,6 +8,7 @@ import ListeProduction from "../pages/liste-production";
 import ListeMarketing from "../pages/marketing/liste-marketing";
 import ChatScreen from "../pages/financière/chat";
 import ListPromoteur from "../pages/financière/list-promoteur";
+import Profile from "../pages/financière/profiles";
 
 const HomeNav = createStackNavigator(
   {
@@ -41,6 +42,20 @@ const ChatNav = createStackNavigator(
   }
 );
 
+const ProfileNav = createStackNavigator(
+  {
+    Profile: Profile,
+  },
+  {
+    defaultNavigationOptions: {
+      headerStyle: {
+        backgroundColor: "#4a148c",
+      },
+      headerTintColor: "white",
+    },
+  }
+);
+
 const mainNavigator = createDrawerNavigator(
   {
     Home: {
@@ -58,6 +73,17 @@ const mainNavigator = createDrawerNavigator(
       screen: ChatNav,
       navigationOptions: {
         drawerLabel: "Messages",
+      },
+      contentOptions: {
+        labelStyle: {
+          marginTop: 100,
+        },
+      },
+    },
+    Profile: {
+      screen: ProfileNav,
+      navigationOptions: {
+        drawerLabel: "Profile",
       },
       contentOptions: {
         labelStyle: {
